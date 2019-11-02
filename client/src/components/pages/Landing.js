@@ -27,7 +27,7 @@ const Landing = () =>(
                 <div style={{width: 260, paddingRight:30, float: 'left' }}>
                     <div className="card">
                         <div className="card-image" style={{width:230}}>
-                            <img alt = "SomeImage" src="https://ae01.alicdn.com/kf/HTB1tOmULXXXXXbXXXXXq6xXFXXXQ/VISADA-JAUNA-2018-New-Men-Shirts-Business-Long-Sleeve-Turn-down-Collar-Cotton-Male-Shirt-Slim.jpg_640x640.jpg"/>
+                            <img alt = "SomeImage" src="https://images-na.ssl-images-amazon.com/images/I/51d3TROruWL._UL1024_.jpg"/>
                             <span className="card-title teal-text">Shirt</span>
                         </div>
                         <div className="card-content">
@@ -41,7 +41,7 @@ const Landing = () =>(
                 <div style={{width: 260, paddingRight:30, float: 'left' }}>
                     <div className="card">
                         <div className="card-image" style={{width:230}}>
-                            <img alt = "SomeImage" src="https://instudio.mabangapp.com/img/027/MC004/MC004g13.jpg"/>
+                            <img alt = "SomeImage" src="https://images-na.ssl-images-amazon.com/images/I/71DPnEmqW%2BL._UL1500_.jpg"/>
                             <span className="card-title orange-text">Sweater</span>
                         </div>
                         <div className="card-content">
@@ -55,7 +55,7 @@ const Landing = () =>(
                 <div style={{width: 260, paddingRight:30, float: 'left' }}>
                     <div className="card">
                         <div className="card-image" style={{width:230, height: 230}}>
-                            <img alt = "SomeImage" src="https://resources.mandmdirect.com/Images/_default/p/l/1/pl1756_1_large.jpg"/>
+                            <img alt = "SomeImage" src="https://d4zpg1jklewne.cloudfront.net/steak/spree-variant/slm-007-lbl-3-1547860483005/mens-slim-jeans-in-light-wash-product.jpg?1547860492"/>
                             <span className="card-title blue-grey-text">Jeans</span>
                         </div>
                         <div className="card-content">

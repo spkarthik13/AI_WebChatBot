@@ -11,8 +11,9 @@
     "start": "node index.js",
     "backend": "nodemon index.js",
     "frontend": "npm run front --prefix client",
-    "dev": "concurrently \"npm run backend\"  \"npm run start --prefix client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "imgServer": "npm run start --prefix ImageProcessor",
+    "dev": "concurrently \"npm run backend\"  \"npm run start --prefix client\" \"npm run imgServer\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && npm install --prefix ImageProcessor"
   },
   "author": "Karthik Poomalraj",
   "license": "ISC",

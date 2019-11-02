@@ -1,0 +1,25 @@
+{
+  "name": "TensorflowImgRec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Karthik Poomalraj",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "^0.2.2",
+    "@tensorflow/tfjs": "^0.13.0",
+    "@tensorflow/tfjs-node": "^0.1.9",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jpeg-js": "^0.3.4",
+    "multer": "^1.4.2",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.2"
+  }
+}

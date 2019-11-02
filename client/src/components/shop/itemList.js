@@ -1,7 +1,9 @@
 import React from 'react'
 
 const itemList = ()=>(
-        <div> Here goes a list of items </div>
+        <div className="App"> 
+            <p>Heres a list of items</p>        
+         </div>
     )
 
 
