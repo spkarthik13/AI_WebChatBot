@@ -9,7 +9,8 @@ module.exports = app => {
         const agent = new WebhookClient({request: req, response: res})
 
         function Dexter(agent){
-            agent.add('Welcome to Dexter fulfillment');
+            agent.add('Dexter is awesome!');
+            
         }
 
         function fallback(agent){
