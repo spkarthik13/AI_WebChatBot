@@ -287,7 +287,7 @@ class Chatbot extends Component{
         // });
 
 
-       const imgRes =  await axios.post('https://pure-sierra-49476.herokuapp.com/api/hello/image', formData)
+       const imgRes =  await axios.post('https://pure-sierra-49476.herokuapp.com:3002/api/hello/image', formData)
 
        const resp = JSON.stringify(imgRes.data)
        const cleanResp = resp.slice(1,-1)
