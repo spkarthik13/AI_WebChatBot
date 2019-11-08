@@ -149,8 +149,6 @@ app.post('/api/hello/image', (req,res)=>{
     
     //   //file removed
     // })
-
-  
   })
 
 });
