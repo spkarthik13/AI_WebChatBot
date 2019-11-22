@@ -260,46 +260,15 @@ class Chatbot extends Component{
 
     async fileUploadHandler() {
 
-        const formData = new FormData();
+       const formData = new FormData();
 
-        formData.append('myImage', this.state.selectedFile, this.state.selectedFile.name);
-
-        // var contentType = {
-        //     headers:{
-        //         "content-type" : "multipart/form-data"
-        //     }
-        // }
-
-
-        // axios.post('http://localhost:3002/api/hello/image', formData, contentType
-        // ).then(function(response){
-        //     console.log(response.data); //response data is a string containing classification of the image.
-        //     console.log(typeof(response.data)) //returns type as string 
-        //     let data = response.data
-            
-        //     this.setState({
-        //         responseString: data
-        //     })
-        
-        // }).then(this.df_text_query(this.state.responseString))
-        // .catch(function(error){
-        //     console.log(error);
-        // });
-
+       formData.append('myImage', this.state.selectedFile, this.state.selectedFile.name); //Wrapping the image file in formData
 
        const imgRes =  await axios.post('http://localhost:3002/api/hello/image', formData)
 
        const resp = JSON.stringify(imgRes.data)
        const cleanResp = resp.slice(1,-1)
-       const commaless = cleanResp.split("/,/");
-       const regex = cleanResp.match('\S+(?=,)')
-       console.log(regex);
-       console.log(resp)
-       console.log(cleanResp)
-       console.log(commaless)
-
        this.df_bot_query(cleanResp)
-
 
     }
 

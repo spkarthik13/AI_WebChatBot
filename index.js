@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 const config = require('./config/keys')
 require('./models/Registration')
-require('./models/Demand')
+require('./models/Orders')
 require('./models/Recommendations')
 
 mongoose.connect(config.mongoURI, {useNewUrlParser: true})

@@ -1,8 +1,8 @@
 const {WebhookClient} = require('dialogflow-fulfillment')
 
 const mongoose = require('mongoose');
-const Demand = mongoose.model('demand');
-const Recommendations = mongoose.model('recommendation')
+const Orders = mongoose.model('order');
+const Recommendations = mongoose.model('recommendation');
 
 module.exports = app => {
     app.post('/', async (req, res) => {
@@ -19,13 +19,13 @@ module.exports = app => {
         }
 
        async function purchase(agent){
-            Demand.findOne({'product': agent.parameters.products}, function (err, product){
+            Orders.findOne({'product': agent.parameters.products}, function (err, product){
                 if(product!= null){
                     product.counter++;
                     product.save();
                 }else{
-                    const demand = new Demand({product: agent.parameters.products});
-                    demand.save();
+                    const order = new Orders({product: agent.parameters.products});
+                    order.save();
                 }
 
 

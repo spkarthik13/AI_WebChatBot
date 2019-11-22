@@ -20,15 +20,9 @@ const jpeg = require('jpeg-js');
 
 const NUMBER_OF_CHANNELS = 3
 
-// const readImage = path => {
-//   const buf = fs.readFileSync(path)
-//   const pixels = jpeg.decode(buf, true)
-//   return pixels
-// }
+
 
 const readImage = (imageName) => {
-    // const imgPath =  fs.readFileSync(__dirname+"/public/shirt.jpg")
-    // console.log(imgPath)
     const pixels = jpeg.decode(imageName, true)
     return pixels
   }
@@ -57,23 +51,11 @@ const imageToInput = (image, numChannels) => {
 
 const loadModel = async path => {
   const mn = new mobilenet.MobileNet(1, 1);
-//   mn.path = `file://${path}`
   mn.path = `https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_1.0_224/model.json`
   await mn.load()
   return mn
 }
 
-
-
-// const classify = async (model) => {
-//   const image = readImage()
-//   const input = imageToInput(image, NUMBER_OF_CHANNELS)
-
-//   const  mn_model = await loadModel(model)
-//   const predictions = await mn_model.classify(input)
-
-//   console.log('classification results:', predictions[0].className)
-// }
 
 
 const classify = async (imagetoClassify)=>{
@@ -107,13 +89,17 @@ app.post('/api/hello', (req, res)=>{
   const sentData = req.body.name
   res.status(200).send({
     success: 'true',
-    message: 'Hello from this end',
+    message: 'Image Service Running..',
     sentData
   })
 });
 
 app.post('/api/hello/image', (req,res)=>{
 
+// Multer is a node.js middleware for handling multipart/form-data such as images. 
+
+
+// Storing files on disk
   var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, __dirname+"/public")
@@ -123,6 +109,7 @@ app.post('/api/hello/image', (req,res)=>{
     }
   })
 
+  //Stores the file with the given field name.
   var upload = multer({storage: storage}).single('myImage');
 
   upload(req, res, function(err){
@@ -133,14 +120,13 @@ app.post('/api/hello/image', (req,res)=>{
     }
     imgPath = __dirname+"/public/myImage.jpg";
     img = fs.readFileSync(imgPath)
-    // result = classify(img)
     predict = classify(img).then(x=>{
       res.send("The Image is recognized as "+x)
     })
-    // console.log("The result is", predict);
     console.log("files:",req.file);
     // console.log("res:", req.body);
 
+    // ---------- To remove the file stored in file system ------------
     // fs.unlink(imgPath, (err) => {
     //   if (err) {
     //     console.error(err)
@@ -152,13 +138,3 @@ app.post('/api/hello/image', (req,res)=>{
   })
 
 });
-
-
-
-
-// classify()
-
-// if (process.argv.length !== 4) throw new Error('incorrect arguments: node script.js <MODEL> <IMAGE_FILE>')
-// classify(process.argv[2], process.argv[3])
-
-// classify(modelPath)
